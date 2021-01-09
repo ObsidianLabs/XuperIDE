@@ -3,6 +3,21 @@ import { withRouter } from 'react-router-dom'
 
 import { connect } from '@obsidians/redux'
 import Network from '@obsidians/network'
+import nodeManager from '@obsidians/node'
+
+nodeManager.generateCommand = ({ name, version }) => {
+  const containerName = `${process.env.PROJECT}-${name}-${version}`
+
+  return [
+    'docker run -it --rm',
+    `--name ${containerName}`,
+    `-p 37101:37101`,
+    `-p 47101:47101`,
+    `-v ${process.env.PROJECT}-${name}:/data`,
+    `${process.env.DOCKER_IMAGE_NODE}:${version}`,
+    `./xchain --datapath /data --port :37101`
+  ].join(' ')
+}
 
 class NetworkWithProps extends PureComponent {
   state = {

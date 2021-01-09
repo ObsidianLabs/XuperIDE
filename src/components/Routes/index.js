@@ -4,6 +4,7 @@ import CacheRoute, { CacheSwitch } from 'react-router-cache-route'
 
 import Auth from '@obsidians/auth'
 import { Input, LoadingScreen, CenterScreen } from '@obsidians/ui-components'
+import { NewProjectModal } from '@obsidians/project'
 
 import BottomBar from './BottomBar'
 
@@ -13,6 +14,33 @@ Input.defaultProps = {
   autoCorrect: 'off',
   autoCapitalize: 'off',
   spellCheck: 'false'
+}
+
+NewProjectModal.defaultProps = {
+  defaultTemplate: 'cpp-counter',
+  templates: [
+    {
+      group: `cpp`,
+      badge: `C++`,
+      children: [
+        { id: 'cpp-counter', display: 'Counter' },
+      ],
+    },
+    {
+      group: `solidity`,
+      badge: `Solidity`,
+      children: [
+        { id: 'sol-counter', display: 'Counter' },
+      ],
+    },
+    {
+      group: `go`,
+      badge: `Go`,
+      children: [
+        { id: 'go-counter', display: 'Counter' },
+      ],
+    },
+  ]
 }
 
 const UserHomepage = lazy(() => import('./UserHomepage' /* webpackChunkName: "tabs" */))
