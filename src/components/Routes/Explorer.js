@@ -2,9 +2,15 @@ import React, { Component } from 'react'
 
 import { Screen, Button } from '@obsidians/ui-components'
 import redux, { connect } from '@obsidians/redux'
-import Explorer from '@obsidians/explorer'
+import Explorer, { AccountTransactions } from '@obsidians/explorer'
 
 import { withRouter } from 'react-router-dom'
+
+import TransactionRow from './TransactionRow'
+
+AccountTransactions.defaultProps = {
+  TransactionRow
+}
 
 class ExplorerWithProps extends Component {
   constructor (props) {
