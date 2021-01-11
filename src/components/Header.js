@@ -23,13 +23,13 @@ const networkList = [
 ]
 if (platform.isDesktop) {
   networkList.push({
-    id: 'local',
+    id: 'dev',
     group: 'default',
     name: 'Local',
     fullName: 'Local Xuperchain',
     icon: 'fas fa-laptop-code',
     notification: 'Switched to <b>Local</b> Xuperchain.',
-    chainId: 0,
+    url: 'http://127.0.0.1:37101',
   })
 }
 const networks = List(networkList)
