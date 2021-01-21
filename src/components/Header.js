@@ -19,10 +19,16 @@ const networkList = [
     notification: 'Switched to <b>Baidu Xuper</b> network.',
     url: 'https://xuper.baidu.com/nodeapi',
     explorer: 'https://xuper.baidu.com',
+    endorse: {
+      fee: '100',
+      server: 'https://xuper.baidu.com/nodeapi',
+      feeAddress: 'aB2hpHnTBDxko3UoP2BpBZRujwhdcAFoT',
+      serviceAddress: 'jknGxa6eyum1JrATWvSJKW3thJ9GKHA9n'
+    }
   }
 ]
 if (platform.isDesktop) {
-  networkList.push({
+  networkList.unshift({
     id: 'dev',
     group: 'default',
     name: 'Local',

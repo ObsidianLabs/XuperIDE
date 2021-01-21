@@ -15,7 +15,7 @@ nodeManager.generateCommand = ({ name, version }) => {
     `-p 47101:47101`,
     `-v ${process.env.PROJECT}-${name}:/data`,
     `${process.env.DOCKER_IMAGE_NODE}:${version}`,
-    `./xchain --datapath /data --port :37101`
+    `./xchain --datapath /data --port 0.0.0.0:37101`
   ].join(' ')
 }
 
@@ -32,7 +32,7 @@ class NetworkWithProps extends PureComponent {
   render () {
     return (
       <Network
-        network={this.props.network}
+        networkId={this.props.network}
         active={this.state.active}
       />
     )

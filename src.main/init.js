@@ -1,7 +1,7 @@
 const { IpcChannel } = require('@obsidians/ipc')
 const KeypairManager = require('@obsidians/keypair')
 const { AutoUpdate } = require('@obsidians/global')
-const CompilerManager = require('@obsidians/eth-compiler')
+const CompilerManager = require('@obsidians/xuper-compiler')
 const { InstanceManager } = require('@obsidians/xuper-network')
 const ProjectChannel = require('@obsidians/xuper-project')
 

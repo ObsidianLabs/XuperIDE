@@ -43,7 +43,11 @@ export default class ReduxApp extends Component {
     if (!this.state.dependencies) {
       return (
         <Suspense fallback={<LoadingScreen />}>
-          <Welcome isReady={checkDependencies} onGetStarted={this.skip} />
+          <Welcome
+            isReady={checkDependencies}
+            onGetStarted={this.skip}
+            truffleSubtitle='The smart contract compiler for Xuperchain'
+          />
           <NotificationSystem />
           <GlobalModals icon={icon} />
         </Suspense>

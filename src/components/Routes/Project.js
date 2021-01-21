@@ -2,7 +2,16 @@ import React, { PureComponent } from 'react'
 
 import platform from '@obsidians/platform'
 import { connect } from '@obsidians/redux'
-import Project from '@obsidians/project'
+import Project, { ProjectSettingsTab } from '@obsidians/project'
+
+ProjectSettingsTab.defaultProps = {
+  languages: [
+    { key: 'cpp', text: 'C++' },
+    { key: 'solidity', text: 'Solidity' },
+    // { key: 'go', text: 'Go' },
+    // { key: 'java', text: 'Java' },
+  ]
+}
 
 class ProjectWithProps extends PureComponent {
   async componentDidMount () {
