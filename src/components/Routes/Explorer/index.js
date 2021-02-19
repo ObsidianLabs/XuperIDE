@@ -2,13 +2,17 @@ import React, { Component } from 'react'
 
 import { Screen, Button } from '@obsidians/ui-components'
 import redux, { connect } from '@obsidians/redux'
-import Explorer, { AccountTransactions } from '@obsidians/explorer'
+import Explorer, { AccountPage, AccountTransactions } from '@obsidians/explorer'
 
 import { withRouter } from 'react-router-dom'
 
+import AccountInfo from './AccountInfo'
+import TransactionHeader from './TransactionHeader'
 import TransactionRow from './TransactionRow'
 
+AccountPage.defaultProps = { AccountInfo }
 AccountTransactions.defaultProps = {
+  TransactionHeader,
   TransactionRow
 }
 
@@ -104,6 +108,7 @@ class ExplorerWithProps extends Component {
     return (
       <Explorer
         ref={this.page}
+        noLowerCaseTransform
         network={network}
         address={this.getSelected()}
         tabs={this.getTabs()}

@@ -72,6 +72,7 @@ const overrides = [
     COMPILER_NAME_IN_LABEL: '"Xdev"',
     COMPILER_VERSION_KEY: '"xdev"',
     DOCKER_IMAGE_NODE: '"obsidians/xuperchain"',
+    DOCKER_IMAGE_COMPILER: '"xuper/xdev"',
   }),
   addWasmLoader(),
 ]

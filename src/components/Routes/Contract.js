@@ -98,6 +98,7 @@ class ContractWithProps extends Component {
     return (
       <Contract
         ref={this.page}
+        noLowerCaseTransform
         network={network}
         address={this.getSelected()}
         tabs={this.getTabs()}

@@ -37,8 +37,7 @@ export default class TransactionRow extends PureComponent {
 
   render () {
     const { tx, owner } = this.props
-    console.log(tx)
-    let TxComponent = <TransactionTransfer tx={tx} owner={owner} />
+    // console.log(tx)
     return (
       <tr onClick={this.onClick}>
         <td><small>{moment(tx.create_time * 1000).format('MM/DD HH:mm:ss')}</small></td>
@@ -47,13 +46,15 @@ export default class TransactionRow extends PureComponent {
             <Address addr={tx.txid} redirect={false}/>
           </div>
         </td>
-        <td>{TxComponent}</td>
-        <td>
-          <TransactionFee value={tx.fee}/>
+        <td>{tx.tx_inputs.length}</td>
+        <td>{tx.tx_outputs.length}</td>
+        <td align='right'>
+          <Badge pill color={'success'}>
+            {tx.amount}
+          </Badge>
         </td>
-        <td>
-          <TransactionFee value={tx.fee}/>
-        </td>
+        <td align='right'><Badge pill color='success'>{tx.fee}</Badge></td>
+        <td className='small'>{tx.desc}</td>
       </tr>
     )
   }
