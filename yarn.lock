@@ -2098,7 +2098,7 @@
   resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-pro/-/5.12.0/fontawesome-pro-5.12.0.tgz#a9116c8c832ca1d1a9747ca48d3f9c596028fd46"
   integrity sha512-EKKR4p0higjsIPKjSSkGqtweUwo/GgR/zKL4rCwzF5Z/BZ/ebJZaS8ZjGE7YUNEN63SYk2WhpJVI+l9dwfU7RQ==
 
-"@grpc/grpc-js@^1.1.1":
+"@grpc/grpc-js@^1.2.6":
   version "1.2.8"
   resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.2.8.tgz#7e1aab8fd4d576b8ee6e73bba475d94a67ffd07d"
   integrity sha512-9C1xiCbnYe/3OFpSuRqz2JgFSOxv6+SlqFhXgRC1nHfXYbLnXvtmsI/NpaMs6k9ZNyV4gyaOOh5Z4McfegQGew==
@@ -2107,7 +2107,7 @@
     google-auth-library "^6.1.1"
     semver "^6.2.0"
 
-"@grpc/proto-loader@^0.5.4":
+"@grpc/proto-loader@^0.5.6":
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/@grpc/proto-loader/-/proto-loader-0.5.6.tgz#1dea4b8a6412b05e2d58514d507137b63a52a98d"
   integrity sha512-DT14xgw3PSzPxwS13auTEwxhMMOoz33DPUKNtmYK/QYbBSpLXJy78FGGs5yVoxVobEqPm4iW9MOIoz0A3bLTRQ==
@@ -2803,6 +2803,11 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.3.tgz#bdfd69d61e464dcc81b25159c270d75a73c1a636"
   integrity sha512-Il2DtDVRGDcqjDtE+rF8iqg1CArehSK84HZJCT7AMITlyXRBpuPhqGLDQMowraqqu1coEaimg4ZOqggt6L6L+A==
 
+"@types/json-stable-stringify@^1.0.32":
+  version "1.0.32"
+  resolved "https://registry.yarnpkg.com/@types/json-stable-stringify/-/json-stable-stringify-1.0.32.tgz#121f6917c4389db3923640b2e68de5fa64dda88e"
+  integrity sha512-q9Q6+eUEGwQkv4Sbst3J4PNgDOvpuVuKj79Hl/qnmBMEIPzB5QoFRUtjcgcg2xNUZyYUGXBk5wYIBKHt0A+Mxw==
+
 "@types/long@^4.0.1":
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@types/long/-/long-4.0.1.tgz#459c65fa1867dafe6a8f322c4c51695663cc55e9"
@@ -3256,22 +3261,24 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@xuperchain/xuper-sdk@2.0.0-beta.4":
-  version "2.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/@xuperchain/xuper-sdk/-/xuper-sdk-2.0.0-beta.4.tgz#62c1645c44c7dc85e06f2103faedc36b3002c386"
-  integrity sha512-sBTwyNLlPkqqVe/NK1vKAhHEV7olPwq001Z51sw6YC/CzG5RtAfoRe6gPtNcOtpEUBl1vaoeHCENO6BC0mfXuQ==
+"@xuperchain/xuper-sdk@2.0.0-beta.9":
+  version "2.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/@xuperchain/xuper-sdk/-/xuper-sdk-2.0.0-beta.9.tgz#fc437f72657c86f621b27206eaa2cbf815ca6ce3"
+  integrity sha512-BlEltEF25TD/Eko6PPx/rydiHwcyby3beavzz+fNE5GRNRgUkB3HeL3orXH134Ev6uiVcuczS+qOp9k5ykeTyQ==
   dependencies:
-    "@grpc/grpc-js" "^1.1.1"
-    "@grpc/proto-loader" "^0.5.4"
+    "@grpc/grpc-js" "^1.2.6"
+    "@grpc/proto-loader" "^0.5.6"
     "@types/aes-js" "^3.1.1"
     "@types/bn.js" "^4.11.5"
     "@types/elliptic" "^6.4.10"
+    "@types/json-stable-stringify" "^1.0.32"
     "@types/long" "^4.0.1"
     "@types/pbkdf2" "^3.0.0"
     "@types/sha256" "^0.2.0"
     aes-js "^3.1.2"
     bn.js "^5.0.0"
     elliptic "^6.5.2"
+    json-stable-stringify "^1.0.1"
     long "^4.0.0"
     node-fetch "^2.6.0"
     pbkdf2 "^3.0.17"
