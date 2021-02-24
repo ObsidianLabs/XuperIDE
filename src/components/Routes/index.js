@@ -17,6 +17,7 @@ Input.defaultProps = {
 }
 
 NewProjectModal.defaultProps = {
+  noCompilerOption: true,
   defaultTemplate: 'cpp-counter',
   templates: [
     {
