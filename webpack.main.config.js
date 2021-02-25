@@ -58,6 +58,10 @@ module.exports = merge.smart(baseConfig, {
         to: 'templates'
       },
       {
+        from: 'node_modules/@xuperchain/xuper-sdk/src/proto',
+        to: 'proto'
+      },
+      {
         from: 'assets/icon.png',
         to: 'icon.png'
       }

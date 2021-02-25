@@ -4,8 +4,9 @@ const { AutoUpdate } = require('@obsidians/global')
 const CompilerManager = require('@obsidians/xuper-compiler')
 const { InstanceManager } = require('@obsidians/xuper-network')
 const ProjectChannel = require('@obsidians/xuper-project')
+const SdkChannel = require('@obsidians/xuper-sdk')
 
-let ipcChannel, keypairManager, autoUpdate, compilerManager, instanceManager, projectChannel
+let ipcChannel, keypairManager, autoUpdate, compilerManager, instanceManager, projectChannel, sdkChannel
 module.exports = function () {
   ipcChannel = new IpcChannel()
   keypairManager = new KeypairManager(process.env.PROJECT)
@@ -13,4 +14,5 @@ module.exports = function () {
   compilerManager = new CompilerManager()
   instanceManager = new InstanceManager()
   projectChannel = new ProjectChannel()
+  sdkChannel = new SdkChannel()
 }
