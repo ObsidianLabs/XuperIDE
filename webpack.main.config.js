@@ -61,10 +61,10 @@ module.exports = merge.smart(baseConfig, {
         from: 'node_modules/@xuperchain/xuper-sdk/src/proto',
         to: 'proto'
       },
-      {
-        from: 'assets/icon.png',
-        to: 'icon.png'
-      }
+      // {
+      //   from: 'assets/icon.png',
+      //   to: 'icon.png'
+      // }
     ]),
     new ForkTsCheckerWebpackPlugin({
       reportFiles: ['src.main/**/*']
