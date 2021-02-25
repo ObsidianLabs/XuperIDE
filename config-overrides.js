@@ -73,6 +73,7 @@ const overrides = [
     COMPILER_VERSION_KEY: '"xdev"',
     DOCKER_IMAGE_NODE: '"obsidians/xuperchain"',
     DOCKER_IMAGE_COMPILER: '"xuper/xdev"',
+    ENABLE_AUTH: JSON.stringify(!!process.env.ENABLE_AUTH),
   }),
   addWasmLoader(),
 ]
