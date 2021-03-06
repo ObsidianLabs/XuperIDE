@@ -2,15 +2,17 @@ import React, { PureComponent } from 'react'
 
 import platform from '@obsidians/platform'
 import { connect } from '@obsidians/redux'
-import Project, { ProjectSettingsTab } from '@obsidians/project'
+import Project, { ProjectToolbar } from '@obsidians/project'
+import { modelSessionManager } from '@obsidians/code-editor'
 
-ProjectSettingsTab.defaultProps = {
-  languages: [
-    { key: 'cpp', text: 'C++' },
-    { key: 'solidity', text: 'Solidity' },
-    // { key: 'go', text: 'Go' },
-    // { key: 'java', text: 'Java' },
-  ]
+import ProjectSettingsTab from './ProjectSettingsTab'
+import DeployButton from './DeployButton'
+
+modelSessionManager.registerCustomTab('settings', ProjectSettingsTab, 'Project Settings')
+
+ProjectToolbar.defaultProps = {
+  noDeploy: true,
+  ExtraButtons: DeployButton,
 }
 
 class ProjectWithProps extends PureComponent {

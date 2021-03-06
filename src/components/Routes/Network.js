@@ -15,7 +15,7 @@ nodeManager.generateCommand = ({ name, version }) => {
     `-p 47101:47101`,
     `-v ${process.env.PROJECT}-${name}:/data`,
     `${process.env.DOCKER_IMAGE_NODE}:${version}`,
-    `./xchain --datapath /data --port 0.0.0.0:37101`
+    `/bin/bash -c "cp /data/xchain.yaml conf/xchain.yaml && ./xchain --datapath /data/blockchain --keypath /data/keys --port 0.0.0.0:37101"`
   ].join(' ')
 }
 

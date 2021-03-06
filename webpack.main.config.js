@@ -74,6 +74,7 @@ module.exports = merge.smart(baseConfig, {
       'process.env.BUILD': JSON.stringify(process.env.BUILD),
       'process.env.PROJECT': JSON.stringify(process.env.PROJECT || process.env.BUILD),
       'process.env.DOCKER_IMAGE_NODE': '"obsidians/xuperchain"',
+      'process.env.DOCKER_IMAGE_COMPILER': '"xuper/xdev"',
     })
   ]
 })
