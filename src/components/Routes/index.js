@@ -62,7 +62,6 @@ export default function (props) {
             render={() => <Redirect to={`/${Auth.username || 'local'}`} />}
           />
           <CacheRoute
-            exact
             path='/contract/:value?'
             component={Contract}
             className='p-relative w-100 h-100'
