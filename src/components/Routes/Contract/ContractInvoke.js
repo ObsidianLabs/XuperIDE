@@ -42,7 +42,7 @@ export default class ContractActions extends Component {
       await queue.add(
         () => networkManager.sdk.sendTransaction(tx, this.state.signer),
         {
-          contractAddress: this.props.value,
+          contractAddress: this.props.contract.address,
           name: this.props.contract.name,
           functionName: this.state.method,
           signer: this.state.signer,
