@@ -129,31 +129,6 @@ export default class ContractActions extends Component {
             onChange={signer => this.setState({ signer })}
           />
         </DropdownCard>
-        <DropdownCard
-          isOpen
-          title='Result'
-          flex='1 2 auto'
-          minHeight='120px'
-          right={
-            this.state.actionError
-              ? <Badge color='danger'>Error</Badge>
-              : this.state.actionResult ? <Badge color='success'>Success</Badge> : null
-          }
-        >
-          <table className='table table-sm table-hover table-striped'>
-            <thead>
-              <tr>
-                <th style={{ width: '15%' }}>Time</th>
-                <th style={{ width: '15%' }}>Signer</th>
-                <th style={{ width: '25%' }}>Args</th>
-                <th style={{ width: '45%' }}>Result</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.renderTableBody()}
-            </tbody>
-          </table>
-        </DropdownCard>
       </div>
     )
   }

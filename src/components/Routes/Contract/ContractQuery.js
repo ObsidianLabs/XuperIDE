@@ -5,6 +5,7 @@ import {
   DropdownToggle,
   DebouncedInput,
   ToolbarButton,
+  Badge,
 } from '@obsidians/ui-components'
 
 import notification from '@obsidians/notification'
@@ -20,7 +21,9 @@ export default class ContractTable extends Component {
   state = {
     method: 'balance',
     executing: false,
-    results: [],
+    actionError: '',
+    actionResult: '',
+    // results: [],
   }
 
   args = React.createRef()
@@ -32,17 +35,21 @@ export default class ContractTable extends Component {
     try {
       const result = await this.props.contract.query(this.state.method, { json: args }, { from: this.state.signer }, 'wasm')
       this.setState({
-        results: [{
-          ts: moment().unix(),
-          args: JSON.stringify(args),
-          result: typeof result === 'string' ? result : JSON.stringify(result),
-        }, ...this.state.results]
+        executing: false,
+        actionError: '',
+        actionResult: typeof result === 'string' ? result : JSON.stringify(result),
       })
+      // this.setState({
+      //   results: [{
+      //     ts: moment().unix(),
+      //     args: JSON.stringify(args),
+      //     result: typeof result === 'string' ? result : JSON.stringify(result),
+      //   }, ...this.state.results]
+      // })
     } catch (e) {
       console.warn(e)
-      notification.error('Query Failed', e.message)
+      this.setState({ executing: false, actionError: e.message, actionResult: '' })
     }
-    this.setState({ executing: false })
   }
 
   renderTableSelector = () => <>
@@ -78,6 +85,27 @@ export default class ContractTable extends Component {
         </tr>
       )
     })
+  }
+
+  renderResult = () => {
+    const { actionError, actionResult } = this.state
+    if (actionError) {
+      return (
+        <div>
+          <span>{actionError}</span>
+        </div>
+      )
+    }
+    
+    if (actionResult) {
+      return (
+        <pre className='text-body pre-wrap break-all small user-select'>
+          {actionResult}
+        </pre>
+      )
+    }
+
+    return <div className='small'>(None)</div>
   }
 
   render () {
@@ -121,23 +149,37 @@ export default class ContractTable extends Component {
         <DropdownCard
           isOpen
           title='Result'
-          flex='1 2 auto'
           minHeight='120px'
+          right={
+            this.state.actionError
+              ? <Badge color='danger'>Error</Badge>
+              : this.state.actionResult ? <Badge color='success'>Success</Badge> : null
+          }
         >
-          <table className='table table-sm table-hover table-striped'>
-            <thead>
-              <tr>
-                <th style={{ width: '15%' }}>Time</th>
-                <th style={{ width: '50%' }}>Args</th>
-                <th style={{ width: '35%' }}>Result</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.renderTableBody()}
-            </tbody>
-          </table>
+          {this.renderResult()}
         </DropdownCard>
       </div>
     )
   }
 }
+
+
+{/* <DropdownCard
+  isOpen
+  title='Result'
+  flex='1 2 auto'
+  minHeight='120px'
+>
+  <table className='table table-sm table-hover table-striped'>
+    <thead>
+      <tr>
+        <th style={{ width: '15%' }}>Time</th>
+        <th style={{ width: '50%' }}>Args</th>
+        <th style={{ width: '35%' }}>Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      {this.renderTableBody()}
+    </tbody>
+  </table>
+</DropdownCard> */}
