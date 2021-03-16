@@ -15,7 +15,7 @@ nodeManager.generateCommand = ({ name, version }) => {
     `-p 47101:47101`,
     `-v ${process.env.PROJECT}-${name}:/data`,
     `${process.env.DOCKER_IMAGE_NODE}:${version}`,
-    `/bin/bash -c "cp /data/xchain.yaml conf/xchain.yaml && ./xchain --datapath /data/blockchain --keypath /data/keys --port 0.0.0.0:37101"`
+    `/bin/bash -c "cp /data/xchain.yaml conf/xchain.yaml && ./xchain --vm ixvm --datapath /data/blockchain --keypath /data/keys --port 0.0.0.0:37101"`
   ].join(' ')
 }
 
@@ -34,6 +34,7 @@ class NetworkWithProps extends PureComponent {
       <Network
         networkId={this.props.network}
         active={this.state.active}
+        customNetwork={this.props.globalConfig.get('customNetwork')}
       />
     )
   }
@@ -42,4 +43,5 @@ class NetworkWithProps extends PureComponent {
 
 export default connect([
   'network',
+  'globalConfig',
 ])(withRouter(NetworkWithProps))

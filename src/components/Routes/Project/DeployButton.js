@@ -87,10 +87,11 @@ export default class DeployerButton extends PureComponent {
 
     let bin
     try {
-      bin = contractPath
-      // const hex = await fileOps.current.readFile(contractPath, 'hex')
-      // bin = Buffer.from(hex, 'hex')
-      // console.log(bin)
+      const buffer = []
+      const content = await fileOps.current.readFile(contractPath, null)
+      const arr = Uint8Array.from(content)
+      arr.forEach(n => buffer.push(String.fromCharCode(n)))
+      bin = buffer.join('')
     } catch (e) {
       notification.error('Error', e.message)
       return
