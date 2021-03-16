@@ -34,6 +34,7 @@ class NetworkWithProps extends PureComponent {
       <Network
         networkId={this.props.network}
         active={this.state.active}
+        customNetwork={this.props.globalConfig.get('customNetwork')}
       />
     )
   }
@@ -42,4 +43,5 @@ class NetworkWithProps extends PureComponent {
 
 export default connect([
   'network',
+  'globalConfig',
 ])(withRouter(NetworkWithProps))
