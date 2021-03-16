@@ -1,7 +1,7 @@
 {
   "name": "xuper-studio",
   "description": "Graphic IDE for Xuperchain smart contract development",
-  "version": "0.1.0-rc.3",
+  "version": "0.1.0-rc.4",
   "author": {
     "name": "Phil Li",
     "email": "phil.li@obsidians.io",
@@ -37,6 +37,7 @@
     "axios": "^0.21.1",
     "crypto-browserify": "^3.12.0",
     "fs-extra": "^9.1.0",
+    "http2": "^3.3.7",
     "keytar": "^7.4.0",
     "monaco-ace-tokenizer": "^0.2.1",
     "node-pty": "0.10.0",
@@ -57,7 +58,6 @@
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
     "aws-sdk": "^2.830.0",
-    "babel-loader": "^8.0.6",
     "babel-plugin-import": "^1.12.0",
     "bootstrap": "^4.6.0",
     "concurrently": "^4.1.2",
