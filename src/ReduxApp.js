@@ -12,7 +12,7 @@ import { config, updateStore } from '@/redux'
 import '@/menu'
 
 import Routes from './components/Routes'
-// import icon from './components/icon.png'
+import icon from './components/icon.png'
 const Header = lazy(() => import('./components/Header' /* webpackChunkName: "components" */))
 
 export default class ReduxApp extends Component {
@@ -50,7 +50,7 @@ export default class ReduxApp extends Component {
             truffleSubtitle='The smart contract compiler for Xuperchain'
           />
           <NotificationSystem />
-          <GlobalModals />
+          <GlobalModals icon={icon} />
         </Suspense>
       )
     }
@@ -64,7 +64,7 @@ export default class ReduxApp extends Component {
           <Routes>
             <Header history={this.props.history} />
             <NotificationSystem />
-            <GlobalModals />
+            <GlobalModals icon={icon} />
           </Routes>
         </div>
       </Provider>
