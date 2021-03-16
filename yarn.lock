@@ -7901,6 +7901,11 @@ http2-wrapper@^1.0.0-beta.5.2:
     quick-lru "^5.1.1"
     resolve-alpn "^1.0.0"
 
+http2@^3.3.7:
+  version "3.3.7"
+  resolved "https://registry.yarnpkg.com/http2/-/http2-3.3.7.tgz#78396eb1e0bcd1db1f4b138d997c682e23414fbc"
+  integrity sha512-puSi8M8WNlFJm9Pk4c/Mbz9Gwparuj3gO9/RRO5zv6piQ0FY+9Qywp0PdWshYgsMJSalixFY7eC6oPu0zRxLAQ==
+
 https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
