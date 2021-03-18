@@ -62,15 +62,15 @@ Xuper Studio 安装包可以在 [Github Releases](https://github.com/ObsidianLab
   <img src="./screenshots/node_log.png" width="720px">
 </p>
 
-### 连接百度超级链
+### 连接百度超级链开放网络
 
-Xuper Studio 除了提供本地节点功能，也提供了连接百度超级链和连接自定义节点的功能。点击 *Network* 标签旁的下拉菜单选择 *Baidu Xuper* 可切换到百度超级链。
+Xuper Studio 除了提供本地节点功能，也提供了连接百度超级链开放网络和连接自定义节点的功能。点击 *Network* 标签旁的下拉菜单选择 *Baidu Xuper* 可切换到百度超级链开放网络。
 
 <p align="center">
   <img src="./screenshots/baidu_chain.png" width="720px">
 </p>
 
-具体连接超级链方法请参考[百度超级链官网](https://xuper.baidu.com)
+具体连接超级链方法请参考[百度超级链开放网络](https://xuper.baidu.com)
 
 ### 区块浏览器
 
