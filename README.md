@@ -140,9 +140,9 @@ Xuper Studio 会自动读取合约 ABI 中的 functions，并为每个 function 
   <img src="./screenshots/contract.png" width="720px">
 </p>
 
-接下来我们开始调用部署好的合约。在 *Invoke* 侧的 *Method* 中填入 `increase`，由于 `increase` 方法并没有参数，将在 *Args* 下的输入框都删除，在 *Authorization* 的 *Signer* 中选择地址，点击上方的执行按钮。完成交易后，我们可以看到成功执行的结果。
+接下来我们开始调用部署好的合约。在 *Invoke* 侧的 *Method* 中填入 `increase`，由于 `increase` 方法需要一个参数 `key`，将在 *Args* 下的输入框中留下一个参数，并在左边填入 `key` 右边填入 `a`，在 *Authorization* 的 *Signer* 中选择地址，点击上方的执行按钮。完成交易后，我们可以看到成功执行的结果。合约会根据传入的 `key` 参数来增加 counter 的值。
 
-在右边的 *Query* 的 *Method* 中填入 `get`，同样由于 `get` 方法没有参数，将 *Args* 下的输入框删除，点击执行按钮，在下方 *Result* 中可以看到查询的结果，即计数器当前的值。
+在右边的 *Query* 的 *Method* 中填入 `get`，将在 *Args* 下的输入框中留下一个参数，并在左边填入 `key` 右边填入 `a`，点击执行按钮，在下方 *Result* 中可以看到查询的结果，即计数器当前的值。
 
 多次调用 `increase` 并通过 `get` 查询可以看到计数器根据调用 `increase` 的次数发生变化。
 
