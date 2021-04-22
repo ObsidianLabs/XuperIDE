@@ -1,6 +1,6 @@
 import Explorer, { AccountPage, AccountTransactions } from '@obsidians/explorer'
 
-import CreateContractButton from './CreateContractButton'
+import ToolbarButtons from './ToolbarButtons'
 import AccountInfo from './AccountInfo'
 import TransactionHeader from './TransactionHeader'
 import TransactionRow from './TransactionRow'
@@ -14,7 +14,7 @@ Explorer.defaultProps = {
   ...Explorer.defaultProps,
   valueFormatter: v => v,
   ToolbarButtons: () => null,
-  ExtraToolbarButtons: CreateContractButton,
+  ExtraToolbarButtons: ToolbarButtons,
 }
 
 export default Explorer
