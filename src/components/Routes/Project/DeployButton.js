@@ -78,6 +78,10 @@ export default class DeployerButton extends PureComponent {
       return await this.deployCppContract(settings)
     } else if (settings.language === 'solidity') {
       return await this.deploySolidityContract(settings)
+    } else if (settings.language === 'go') {
+      return await this.deploySolidityContract(settings)
+    } else if (settings.language === 'java') {
+      return await this.deployJavaContract(settings)
     }
   }
 
@@ -131,6 +135,48 @@ export default class DeployerButton extends PureComponent {
     this.modal.current.openModal()
   }
 
+  deployGoContract = async settings => {
+    const projectManager = this.props.projectManager
+    const contractPath = projectManager.pathForProjectFile(settings.deploy)
+
+    let bin
+    try {
+      const buffer = []
+      const content = await fileOps.current.readFile(contractPath, null)
+      const arr = Uint8Array.from(content)
+      arr.forEach(n => buffer.push(String.fromCharCode(n)))
+      bin = buffer.join('')
+    } catch (e) {
+      notification.error('Error', e.message)
+      return
+    }
+
+    this.setState({ language: 'Go', constructorAbi: null, bin })
+
+    this.modal.current.openModal()
+  }
+
+  deployJavaContract = async settings => {
+    const projectManager = this.props.projectManager
+    const contractPath = projectManager.pathForProjectFile(settings.deploy)
+
+    let bin
+    try {
+      const buffer = []
+      const content = await fileOps.current.readFile(contractPath, null)
+      const arr = Uint8Array.from(content)
+      arr.forEach(n => buffer.push(String.fromCharCode(n)))
+      bin = buffer.join('')
+    } catch (e) {
+      notification.error('Error', e.message)
+      return
+    }
+
+    this.setState({ language: 'Java', constructorAbi: null, bin })
+
+    this.modal.current.openModal()
+  }
+
   confirmDeploymentParameters = async () => {
     let parameters = { array: [], obj: {} }
     if (this.state.constructorAbi) {
@@ -163,6 +209,12 @@ export default class DeployerButton extends PureComponent {
       } else if (language === 'WASM') {
         const args = this.args.current?.getArgs()
         res = await networkManager.sdk.deploy(signer, contractAccount, contractName, bin, undefined, 'wasm', args)
+      } else if (language === 'Go') {
+        const args = this.args.current?.getArgs()
+        throw new Error('Deploy Go contract not supported yet.')
+      } else if (language === 'Java') {
+        const args = this.args.current?.getArgs()
+        throw new Error('Deploy Java contract not supported yet.')
       }
     } catch (e) {
       notification.error('Error', e.message)
@@ -212,7 +264,7 @@ export default class DeployerButton extends PureComponent {
         />
         <div className='mb-2' />
       </>
-    } else if (language === 'WASM') {
+    } else if (['WASM', 'Java', 'Go'].indexOf(language) > -1) {
       constructorParameters = (
         <div className='mb-2'>
           <Label>Constructor Parameters</Label>

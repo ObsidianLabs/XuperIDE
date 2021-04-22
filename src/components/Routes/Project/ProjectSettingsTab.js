@@ -21,6 +21,8 @@ import compilerManager from '@obsidians/compiler'
 const languages = [
   { key: 'cpp', text: 'C++' },
   { key: 'solidity', text: 'Solidity' },
+  { key: 'go', text: 'Go' },
+  { key: 'java', text: 'Java' },
 ]
 
 export default class ProjectSettingsTab extends AbstractProjectSettingsTab {
@@ -73,6 +75,36 @@ export default class ProjectSettingsTab extends AbstractProjectSettingsTab {
           onSelected={solc => this.onChange('compilers.solc')(solc)}
         />
       )
+    } else if (language === 'go') {
+      return (
+        <DockerImageInputSelector
+          key='compiler-go'
+          channel={compilerManager.go}
+          disableAutoSelection
+          bg='bg-black'
+          label='Go version'
+          noneName='go'
+          modalTitle='Go Manager'
+          downloadingTitle='Downloading Go'
+          selected={projectSettings?.get('compilers.go')}
+          onSelected={go => this.onChange('compilers.go')(go)}
+        />
+      )
+    } else if (language === 'java') {
+      return (
+        <DockerImageInputSelector
+          key='compiler-java'
+          channel={compilerManager.maven}
+          disableAutoSelection
+          bg='bg-black'
+          label='Maven version'
+          noneName='maven'
+          modalTitle='Maven Manager'
+          downloadingTitle='Downloading Maven'
+          selected={projectSettings?.get('compilers.maven')}
+          onSelected={maven => this.onChange('compilers.maven')(maven)}
+        />
+      )
     }
   }
 
@@ -113,7 +145,7 @@ export default class ProjectSettingsTab extends AbstractProjectSettingsTab {
               onChange={this.onChange('deploy')}
               placeholder={`Required`}
             />
-            <h4 className='mt-4'>Compilers</h4>
+            <h4 className='mt-4'>Compiler</h4>
             {this.renderCompilerSelector()}
             <AbstractProjectSettingsTab.DeleteButton context={this.context} />
           </div>
