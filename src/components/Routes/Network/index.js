@@ -5,6 +5,8 @@ import { connect } from '@obsidians/redux'
 import Network from '@obsidians/network'
 import nodeManager from '@obsidians/node'
 
+import CustomNetworkModal from './CustomNetworkModal'
+
 nodeManager.generateCommand = ({ name, version }) => {
   const containerName = `${process.env.PROJECT}-${name}-${version}`
 
@@ -35,6 +37,7 @@ class NetworkWithProps extends PureComponent {
         networkId={this.props.network}
         active={this.state.active}
         customNetwork={this.props.globalConfig.get('customNetwork')}
+        CustomNetworkModal={CustomNetworkModal}
       />
     )
   }
