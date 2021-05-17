@@ -21,8 +21,8 @@ import compilerManager from '@obsidians/compiler'
 const languages = [
   { key: 'cpp', text: 'C++' },
   { key: 'solidity', text: 'Solidity' },
-  { key: 'go', text: 'Go' },
-  { key: 'java', text: 'Java' },
+  // { key: 'go', text: 'Go' },
+  // { key: 'java', text: 'Java' },
 ]
 
 export default class ProjectSettingsTab extends AbstractProjectSettingsTab {
