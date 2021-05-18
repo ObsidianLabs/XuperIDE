@@ -1,6 +1,6 @@
 # Xuper Studio
 
-Xuper Studio 是一个帮助开发者快速开发 [Xuper](https://ethereum.org/) 智能合约的集成化开发环境。
+Xuper Studio 是一个帮助开发者快速开发[百度超级链](https://xuper.baidu.com/)智能合约的集成化开发环境。
 
 ![](./screenshots/compile.png)
 
@@ -8,27 +8,32 @@ Xuper Studio 是一个帮助开发者快速开发 [Xuper](https://ethereum.org/)
 
 ### 下载
 
-Xuper Studio 安装包可以在 [Github Releases](https://github.com/ObsidianLabs/XuperStudio/releases) 进行下载。目前 Xuper Studio 支持 macOS, Linux 和 Windows 系统，请根据系统下载对应的版本 (macOS 下载 .dmg 或者 .zip，Linux 下载 .AppImage, Windows 下载 .exe)。
+Xuper Studio 安装包可以在下方地址进行下载：
+
+- xxx
+
+目前 Xuper Studio 支持 macOS, Linux 和 Windows 系统，请根据系统下载对应的版本 (macOS 下载 .dmg 或者 .zip，Linux 下载 .AppImage, Windows 下载 .exe)。
 
 ### 安装
 
-- **macOS**: 双击打开 `XuperStudio-x.x.x.dmg` 并将 `Xuper Studio` 拖动到应用文件夹内。
+- **macOS**: 双击打开 `XuperStudio-x.x.x.dmg` 并将 `Xuper Studio` 拖动到应用文件夹内（初次运行时若出现未通过苹果验证的提示，可右键点击应用图标并打开，跳过验证）。
 - **Linux**: 双击打开 `XuperStudio-x.x.x.AppImage`, 选择 *Properties* => *Permissions* => *Execute*, 将 *Allow executing file as progrom* 选项打勾。关闭属性设置窗口并双击打开应用（不同的 Linux 发行版可能会有不同的安装方式）。
-- **Windows**:  双击打开 `XuperStudio-x.x.x.exe`。
+- **Windows**:  双击 `XuperStudio-x.x.x.exe`，安装并打开应用。
 
 ## 功能预览
 
 ### 准备工作
 
-在正确安装 Xuper Studio 并初次启动时，你将看到一个欢迎页面，这里有 Xuper Studio 正常运行所需要的依赖，包括了 Docker，Xuper Node 以及 Xuper Truffle
+在正确安装 Xuper Studio 并初次启动时，你将看到一个欢迎页面，这里有 Xuper Studio 正常运行所需要的依赖，包括了 Docker，Xuperchain node 及 Xdev
 
 <p align="center">
   <img src="./screenshots/welcome.png" width="720px">
 </p>
 
-- Xuper Studio 使用 [**Docker**](https://www.docker.com/) 来启动 Xuper 节点和进行项目编译。如果你之前没有安装过 Docker，可以点击 *Install Docker* 按钮访问 Docker 官方网站并进行下载安装。
-- [**Xuperchain Node in Docker**](https://hub.docker.com/repository/docker/obsidians/xuperchain) Xuperchain 节点镜像，Xuper Studio 使用这个镜像来运行 Xuperchain 节点以及项目编译
-- [**Xdev in Docker**](https://hub.docker.com/r/xuper/xdev) Xuper Studio 使用这个 Xdev 进行项目的创建和编译。
+- Xuper Studio 使用 [**Docker**](https://www.docker.com/) 来启动 Xuper 节点和进行项目编译。如果你之前没有安装过 Docker，可以点击 *Install Docker* 按钮访问 Docker 官方网站并进行下载安装；
+  - 对于 Windows 用户，我们推荐使用 [Docker Desktop](https://www.docker.com/products/docker-desktop)。[Docker Toolbox](http://docs.docker.oeynet.com/toolbox/toolbox_install_windows/) 也可使用，但在一些情况可能会出现问题；
+- [**Xuperchain node**](https://hub.docker.com/repository/docker/obsidians/xuperchain) 是超级链节点的 Docker 镜像，Xuper Studio 使用这个镜像来运行 Xuperchain 节点；
+- [**Xdev**](https://hub.docker.com/r/xuper/xdev) 是超级链 C++ 合约的开发及编译工具。
 
 当所有依赖都正确安装并运行后，灰色的 *Skip* 按钮将会变成绿色的 *Get Started* 按钮。点击这个按钮进入 Xuper Studio 的主界面。
 
@@ -42,7 +47,9 @@ Xuper Studio 安装包可以在 [Github Releases](https://github.com/ObsidianLab
 
 你可以在密钥管理器中创建、导入并管理密钥对。在创建和编辑密钥对的时候，你可以为该密钥对设置别名，方便在后续的使用中进行识别。密钥管理器除了对密钥对进行储存管理外，还将为创世区块提供创世地址。创建新的 Xuper 节点实例时，Xuper Studio 会使用密钥管理器里的地址作为创世地址。
 
-**在继续之前，请先在密钥管理器中创建一些密钥对，作为接下来创建节点实例的创世地址。**
+创建的新密钥对将使用中文助记词来生成私钥。不过，导入私钥的时候也可以导入英文助记词或者 JSON 格式超级链私钥。
+
+*在继续之前，请先在密钥管理器中创建一些密钥对，作为接下来创建节点实例的创世地址。*
 
 ### 启动节点
 
@@ -68,13 +75,13 @@ Xuper Studio 除了提供本地节点功能，也提供了连接百度超级链�
   <img src="./screenshots/baidu_chain.png" width="720px">
 </p>
 
-具体连接超级链方法请参考[百度超级链开放网络](https://xuper.baidu.com)
+具体连接超级链方法请前往[百度超级链开放网络](https://xuper.baidu.com)网站。
 
 ### 区块浏览器
 
 节点启动后，点击顶部的 *Explorer* 标签，主页面将切换为区块浏览器。在区块浏览器中，我们可以查询对应地址的信息。
 
-从密钥管理器中复制刚刚生成的地址，将地址粘贴在地址栏并点击回车，我们便可以看到对应地址的余额信息了，在余额信息的右方显示该地址对应的合约账户地址。
+通过标签旁边的下拉箭头，可以选择并打开密钥管理器中的地址。您也可以在地址栏中输入或粘贴一个地址。打开一个有效地址后，我们便可以看到对应地址的余额信息了，在余额信息的右方显示该地址对应的合约账户地址。
 
 <p align="center">
   <img src="./screenshots/explorer.png" width="720px">
@@ -109,7 +116,7 @@ Counter 合约实现了一个简单的区块链计数器，其中定义了两个
 
 ### 编译智能合约项目
 
-Xuperchain 支持使用 C++ 及 Solidity 开发智能合约，其中 C++ 使用 Xdev 进行合约编译，Solidity 使用 Solc 进行编译。
+Xuperchain 支持使用 C++ 及 Solidity 开发智能合约，其中 C++ 使用 Xdev 进行合约编译，Solidity 使用 Solc 进行编译。在右下角可以看到目前使用的编译器和编译器版本。可以点击该按钮选择希望使用的编译器版本，或者打开管理器下载更多可用的编译器版本。
 
 点击工具栏的编译按钮（锤子形状），Xuper Studio 将进行项目的编译，你可以通过下方的日志查看器来查看编译结果。编译后将在项目目录下中生成 wasm 或者 abi 文件。
 
