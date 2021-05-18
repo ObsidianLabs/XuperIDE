@@ -8,11 +8,7 @@ Xuper Studio 是一个帮助开发者快速开发[百度超级链](https://xuper
 
 ### 下载
 
-Xuper Studio 安装包可以在下方地址进行下载：
-
-- xxx
-
-目前 Xuper Studio 支持 macOS, Linux 和 Windows 系统，请根据系统下载对应的版本 (macOS 下载 .dmg 或者 .zip，Linux 下载 .AppImage, Windows 下载 .exe)。
+目前 Xuper Studio 支持 macOS, Linux 和 Windows 操作系统，对应的安装包可以在下方地址进行下载（[macOS](https://app.obsidians.io/xuper/mac), [Linux](https://app.obsidians.io/xuper/linux), [Windows](https://app.obsidians.io/xuper/win)）。
 
 ### 安装
 
