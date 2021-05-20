@@ -1,5 +1,5 @@
 {
-  "name": "xuper-studio",
+  "name": "xuper-ide",
   "description": "Graphic IDE for Xuperchain smart contract development",
   "version": "0.2.0",
   "author": {
@@ -120,8 +120,8 @@
     ]
   },
   "build": {
-    "productName": "Xuper Studio",
-    "artifactName": "XuperStudio-${version}.${ext}",
+    "productName": "XuperIDE",
+    "artifactName": "XuperIDE-${version}.${ext}",
     "files": [
       "build/**/*",
       "node_modules/**/*"
@@ -136,7 +136,7 @@
       "buildResources": "assets"
     },
     "mac": {
-      "appId": "com.obsidians.xuperstudio",
+      "appId": "com.obsidians.xuper-ide",
       "category": "developer-tools",
       "target": {
         "target": "dmg",

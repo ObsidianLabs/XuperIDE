@@ -1,6 +1,6 @@
-# Xuper Studio
+# XuperIDE 使用文档
 
-Xuper Studio 是一个帮助开发者快速开发[百度超级链](https://xuper.baidu.com/)智能合约的集成化开发环境。
+XuperIDE 是一个帮助开发者快速开发[百度超级链](https://xuper.baidu.com/)智能合约的集成化开发环境。
 
 ![](./screenshots/compile.png)
 
@@ -8,40 +8,40 @@ Xuper Studio 是一个帮助开发者快速开发[百度超级链](https://xuper
 
 ### 下载
 
-目前 Xuper Studio 支持 macOS, Linux 和 Windows 操作系统，对应的安装包可以在下方地址进行下载（[macOS](https://app.obsidians.io/xuper/mac), [Linux](https://app.obsidians.io/xuper/linux), [Windows](https://app.obsidians.io/xuper/win)）。
+目前 XuperIDE 支持 macOS, Linux 和 Windows 操作系统，对应的安装包可以在下方地址进行下载（[macOS](https://app.obsidians.io/xuper/mac), [Linux](https://app.obsidians.io/xuper/linux), [Windows](https://app.obsidians.io/xuper/win)）。
 
 ### 安装
 
-- **macOS**: 双击打开 `XuperStudio-x.x.x.dmg` 并将 `Xuper Studio` 拖动到应用文件夹内（初次运行时若出现未通过苹果验证的提示，可右键点击应用图标并打开，跳过验证）。
-- **Linux**: 双击打开 `XuperStudio-x.x.x.AppImage`, 选择 *Properties* => *Permissions* => *Execute*, 将 *Allow executing file as progrom* 选项打勾。关闭属性设置窗口并双击打开应用（不同的 Linux 发行版可能会有不同的安装方式）。
-- **Windows**:  双击 `XuperStudio-x.x.x.exe`，安装并打开应用。
+- **macOS**: 双击打开 `XuperIDE-x.x.x.dmg` 并将 `XuperIDE` 拖动到应用文件夹内（初次运行时若出现未通过苹果验证的提示，可右键点击应用图标并打开，跳过验证）。
+- **Linux**: 双击打开 `XuperIDE-x.x.x.AppImage`, 选择 *Properties* => *Permissions* => *Execute*, 将 *Allow executing file as progrom* 选项打勾。关闭属性设置窗口并双击打开应用（不同的 Linux 发行版可能会有不同的安装方式）。
+- **Windows**:  双击 `XuperIDE-x.x.x.exe`，安装并打开应用。
 
 ## 功能预览
 
 ### 准备工作
 
-在正确安装 Xuper Studio 并初次启动时，你将看到一个欢迎页面，这里有 Xuper Studio 正常运行所需要的依赖，包括了 Docker，Xuperchain node 及 Xdev
+在正确安装 XuperIDE 并初次启动时，你将看到一个欢迎页面，这里有 XuperIDE 正常运行所需要的依赖，包括了 Docker，Xuperchain node 及 Xdev
 
 <p align="center">
   <img src="./screenshots/welcome.png" width="720px">
 </p>
 
-- Xuper Studio 使用 [**Docker**](https://www.docker.com/) 来启动 Xuper 节点和进行项目编译。如果你之前没有安装过 Docker，可以点击 *Install Docker* 按钮访问 Docker 官方网站并进行下载安装；
+- XuperIDE 使用 [**Docker**](https://www.docker.com/) 来启动 Xuper 节点和进行项目编译。如果你之前没有安装过 Docker，可以点击 *Install Docker* 按钮访问 Docker 官方网站并进行下载安装；
   - 对于 Windows 用户，我们推荐使用 [Docker Desktop](https://www.docker.com/products/docker-desktop)。[Docker Toolbox](http://docs.docker.oeynet.com/toolbox/toolbox_install_windows/) 也可使用，但在一些情况可能会出现问题；
-- [**Xuperchain node**](https://hub.docker.com/repository/docker/obsidians/xuperchain) 是超级链节点的 Docker 镜像，Xuper Studio 使用这个镜像来运行 Xuperchain 节点；
+- [**Xuperchain node**](https://hub.docker.com/repository/docker/obsidians/xuperchain) 是超级链节点的 Docker 镜像，XuperIDE 使用这个镜像来运行 Xuperchain 节点；
 - [**Xdev**](https://hub.docker.com/r/xuper/xdev) 是超级链 C++ 合约的开发及编译工具。
 
-当所有依赖都正确安装并运行后，灰色的 *Skip* 按钮将会变成绿色的 *Get Started* 按钮。点击这个按钮进入 Xuper Studio 的主界面。
+当所有依赖都正确安装并运行后，灰色的 *Skip* 按钮将会变成绿色的 *Get Started* 按钮。点击这个按钮进入 XuperIDE 的主界面。
 
 ### 创建密钥对
 
-进入主界面后，我们需要首先创建一些密钥对。在 Xuper Studio 的任意界面，点击应用左下⻆的钥匙图标，打开密钥管理器。
+进入主界面后，我们需要首先创建一些密钥对。在 XuperIDE 的任意界面，点击应用左下⻆的钥匙图标，打开密钥管理器。
 
 <p align="center">
   <img src="./screenshots/keypairs.png" width="720px">
 </p>
 
-你可以在密钥管理器中创建、导入并管理密钥对。在创建和编辑密钥对的时候，你可以为该密钥对设置别名，方便在后续的使用中进行识别。密钥管理器除了对密钥对进行储存管理外，还将为创世区块提供创世地址。创建新的 Xuper 节点实例时，Xuper Studio 会使用密钥管理器里的地址作为创世地址。
+你可以在密钥管理器中创建、导入并管理密钥对。在创建和编辑密钥对的时候，你可以为该密钥对设置别名，方便在后续的使用中进行识别。密钥管理器除了对密钥对进行储存管理外，还将为创世区块提供创世地址。创建新的 Xuper 节点实例时，XuperIDE 会使用密钥管理器里的地址作为创世地址。
 
 创建的新密钥对将使用中文助记词来生成私钥。不过，导入私钥的时候也可以导入英文助记词或者 JSON 格式超级链私钥。
 
@@ -65,7 +65,7 @@ Xuper Studio 是一个帮助开发者快速开发[百度超级链](https://xuper
 
 ### 连接百度超级链开放网络
 
-Xuper Studio 除了提供本地节点功能，也提供了连接百度超级链开放网络和连接自定义节点的功能。点击 *Network* 标签旁的下拉菜单选择 *Baidu Xuper* 可切换到百度超级链开放网络。
+XuperIDE 除了提供本地节点功能，也提供了连接百度超级链开放网络和连接自定义节点的功能。点击 *Network* 标签旁的下拉菜单选择 *Baidu Xuper* 可切换到百度超级链开放网络。
 
 <p align="center">
   <img src="./screenshots/baidu_chain.png" width="720px">
@@ -97,7 +97,7 @@ Xuperchain 的一个账户可以拥有多个智能合约账户，用户可以将
 
 ### 创建智能合约项目
 
-点击顶部的 *Project* 标签，主页面将切换至项目管理器。点击页面右上角的 *New* 按钮打开创建项目弹窗，输入项目名称并选择合适的模版，Xuper Studio 目前提供了两个模版，分别为
+点击顶部的 *Project* 标签，主页面将切换至项目管理器。点击页面右上角的 *New* 按钮打开创建项目弹窗，输入项目名称并选择合适的模版，XuperIDE 目前提供了两个模版，分别为
 
 - C++ 版本的 `Counter`
 - Solidity 版本的 `Counter`
@@ -106,7 +106,7 @@ Xuperchain 的一个账户可以拥有多个智能合约账户，用户可以将
   <img src="./screenshots/create_project.png" width="720px">
 </p>
 
-填写项目名称并选择合适的模版后点击创建项目，创建完成后 Xuper Studio 将在项目管理页面中打开该项目。
+填写项目名称并选择合适的模版后点击创建项目，创建完成后 XuperIDE 将在项目管理页面中打开该项目。
 
 Counter 合约实现了一个简单的区块链计数器，其中定义了两个方法 `increase` 和 `get`，分别为自增计数器和获取当前计数器的值。
 
@@ -114,7 +114,7 @@ Counter 合约实现了一个简单的区块链计数器，其中定义了两个
 
 Xuperchain 支持使用 C++ 及 Solidity 开发智能合约，其中 C++ 使用 Xdev 进行合约编译，Solidity 使用 Solc 进行编译。在右下角可以看到目前使用的编译器和编译器版本。可以点击该按钮选择希望使用的编译器版本，或者打开管理器下载更多可用的编译器版本。
 
-点击工具栏的编译按钮（锤子形状），Xuper Studio 将进行项目的编译，你可以通过下方的日志查看器来查看编译结果。编译后将在项目目录下中生成 wasm 或者 abi 文件。
+点击工具栏的编译按钮（锤子形状），XuperIDE 将进行项目的编译，你可以通过下方的日志查看器来查看编译结果。编译后将在项目目录下中生成 wasm 或者 abi 文件。
 
 <p align="center">
   <img src="./screenshots/compile.png" width="720px">
@@ -130,14 +130,14 @@ Xuperchain 支持使用 C++ 及 Solidity 开发智能合约，其中 C++ 使用 
 
 ### 调用合约
 
-成功部署智能合约后，点击区块浏览器，并在合约地址处选择刚刚部署的地址，主页面将切换至合约浏览器，Xuper Studio 将自动打开刚才部署完成的智能合约。
+成功部署智能合约后，点击区块浏览器，并在合约地址处选择刚刚部署的地址，主页面将切换至合约浏览器，XuperIDE 将自动打开刚才部署完成的智能合约。
 
 合约浏览器页面主要分为两个部分：
 
 - 左边为合约的调用方法，可以根据合约代码填写调用的方法及参数，还可以选择不同的签名地址。
 - 右边为合约的数据读取，与调用合约类似，可以根据合约代码填写查询的方法及参数，可以选择不同的签名地址。
 
-Xuper Studio 会自动读取合约 ABI 中的 functions，并为每个 function 生成参数表单。用户可以简单的选择要调用的 function，输入参数，选择签名者（需要为 keypair manager 中存在的地址；读操作不需选择），并点击运行按钮进行合约调用。调用结果（成功或失败）将显示在下方的 result 栏中。
+XuperIDE 会自动读取合约 ABI 中的 functions，并为每个 function 生成参数表单。用户可以简单的选择要调用的 function，输入参数，选择签名者（需要为 keypair manager 中存在的地址；读操作不需选择），并点击运行按钮进行合约调用。调用结果（成功或失败）将显示在下方的 result 栏中。
 
 <p align="center">
   <img src="./screenshots/contract.png" width="720px">
