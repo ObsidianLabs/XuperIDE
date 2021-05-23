@@ -3147,10 +3147,10 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@xuperchain/xuper-sdk@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@xuperchain/xuper-sdk/-/xuper-sdk-2.0.0.tgz#5b0a068299ecee2d882e612ba7bd030e636f3fdf"
-  integrity sha512-NvMq6HUPt8icbaAFLkWKJF0Dd+WUBYl2YCCzHYFsiRNOy+0N99bfiS+p4nKChIDW2z80s1lrpugfHv4wiyGvXw==
+"@xuperchain/xuper-sdk@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@xuperchain/xuper-sdk/-/xuper-sdk-2.1.0.tgz#68cb665540f0cb5c69808d134baa1b21cea0c61f"
+  integrity sha512-/iwGBKXuF37OZG/JRU6MJxaPLYpArvvFW8mDaIS+kDQaVG//sr6kOdDq6Trn1EgsAFlgyQD/JWlLo3jPtWNIYw==
   dependencies:
     "@grpc/grpc-js" "^1.2.6"
     "@grpc/proto-loader" "^0.5.6"
