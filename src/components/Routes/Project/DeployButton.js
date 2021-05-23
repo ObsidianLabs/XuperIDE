@@ -79,7 +79,7 @@ export default class DeployerButton extends PureComponent {
     } else if (settings.language === 'solidity') {
       return await this.deploySolidityContract(settings)
     } else if (settings.language === 'go') {
-      return await this.deploySolidityContract(settings)
+      return await this.deployGoContract(settings)
     } else if (settings.language === 'java') {
       return await this.deployJavaContract(settings)
     }
@@ -211,7 +211,7 @@ export default class DeployerButton extends PureComponent {
         res = await networkManager.sdk.deploy(signer, contractAccount, contractName, bin, undefined, 'wasm', args)
       } else if (language === 'Go') {
         const args = this.args.current?.getArgs()
-        throw new Error('Deploy Go contract not supported yet.')
+        res = await networkManager.sdk.deploy(signer, contractAccount, contractName, bin, undefined, 'go', args)
       } else if (language === 'Java') {
         const args = this.args.current?.getArgs()
         throw new Error('Deploy Java contract not supported yet.')
@@ -300,6 +300,7 @@ export default class DeployerButton extends PureComponent {
           placeholder='4 to 15 letters, allow alphabets, numbers and underscore'
           value={contractName}
           onChange={contractName => this.setState({ contractName })}
+          validator={v => !/^[a-z]{4,16}$/.test(v) && 'Invalid name'}
         />
         {constructorParameters}
         <KeypairInputSelector
