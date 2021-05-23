@@ -6,8 +6,9 @@ const { InstanceManager } = require('@obsidians/xuper-network')
 const ProjectChannel = require('@obsidians/xuper-project')
 const SdkChannel = require('@obsidians/xuper-sdk')
 const AuthChannel = require('@obsidians/auth')
+const { DockerImageChannel } = require('@obsidians/docker')
 
-let ipcChannel, keypairManager, autoUpdate, compilerManager, instanceManager, projectChannel, sdkChannel, authChannel
+let ipcChannel, keypairManager, autoUpdate, compilerManager, instanceManager, projectChannel, sdkChannel, authChannel, indexerChannel
 module.exports = function () {
   ipcChannel = new IpcChannel()
   keypairManager = new KeypairManager(process.env.PROJECT)
@@ -17,4 +18,5 @@ module.exports = function () {
   projectChannel = new ProjectChannel()
   sdkChannel = new SdkChannel()
   authChannel = new AuthChannel()
+  indexerChannel = new DockerImageChannel('xuper/xindexer')
 }

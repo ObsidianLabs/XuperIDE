@@ -7,6 +7,7 @@ import Welcome, { checkDependencies } from '@obsidians/welcome'
 import { GlobalModals, autoUpdater } from '@obsidians/global'
 import { LoadingScreen } from '@obsidians/ui-components'
 import redux, { Provider } from '@obsidians/redux'
+import { DockerImageChannel } from '@obsidians/docker'
 
 import { config, updateStore } from '@/redux'
 import '@/menu'
@@ -16,9 +17,20 @@ import icon from './components/icon.png'
 const Header = lazy(() => import('./components/Header' /* webpackChunkName: "components" */))
 
 export default class ReduxApp extends Component {
-  state = {
-    loaded: false,
-    dependencies: false
+  constructor (props) {
+    super(props)
+    this.state = {
+      loaded: false,
+      dependencies: false
+    }
+    this.indexerChannel = new DockerImageChannel('xuper/xindexer')
+    this.extraItems = [{
+      channel: this.indexerChannel,
+      title: 'Xindexer in Docker',
+      subtitle: 'The indexer for for local node',
+      link: 'https://hub.docker.com/r/xuper/xindexer',
+      downloadingTitle: 'Downloading xindexer',
+    }]
   }
 
   async componentDidMount () {
@@ -27,7 +39,7 @@ export default class ReduxApp extends Component {
   }
 
   refresh = async () => {
-    const dependencies = await checkDependencies()
+    const dependencies = await checkDependencies(this.extraItems)
     this.setState({ loaded: true, dependencies })
     autoUpdater.check()
   }
@@ -48,6 +60,7 @@ export default class ReduxApp extends Component {
             isReady={checkDependencies}
             onGetStarted={this.skip}
             truffleSubtitle='The smart contract compiler for Xuperchain'
+            extraItems={this.extraItems}
           />
           <NotificationSystem />
           <GlobalModals icon={icon} />
