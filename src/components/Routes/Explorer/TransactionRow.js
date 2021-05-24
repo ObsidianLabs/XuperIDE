@@ -45,8 +45,8 @@ export default class TransactionRow extends PureComponent {
   }
 
   refresh = async txid => {
-    const tx = await networkManager.sdk.queryTransaction(txid)
-    console.log(tx)
+    const tx = await networkManager.sdk.queryTransaction(txid, this.props.owner)
+    this.setState({ tx })
   }
 
   onClick = () => {}
@@ -54,22 +54,29 @@ export default class TransactionRow extends PureComponent {
   render () {
     const { owner } = this.props
     const { tx } = this.state
+    const ts = (+tx.timestamp) || (tx.create_time * 1000)
     return (
       <tr onClick={this.onClick}>
-        <td><small>{moment(tx.create_time * 1000).format('MM/DD HH:mm:ss')}</small></td>
+        <td><small>{moment(ts).format('MM/DD HH:mm:ss')}</small></td>
         <td>
           <div className='flex-1 overflow-hidden'>
             <Address addr={tx.txid} redirect={false}/>
           </div>
         </td>
-        <td>{tx.tx_inputs?.length}</td>
-        <td>{tx.tx_outputs?.length}</td>
+        <td>
+        {
+          tx.initiator
+          ? <code><small>{tx.initiator}</small></code>
+          : `${tx.tx_inputs?.length} input(s)`
+        }
+        </td>
+        <td>{tx.tx_outputs?.length} output(s)</td>
         <td align='right'>
-          <Badge pill color={'success'}>
+          <Badge pill color={tx.amount >= 0 ? 'success' : 'danger'}>
             {tx.amount}
           </Badge>
         </td>
-        <td align='right'><Badge pill color='success'>{tx.fee}</Badge></td>
+        <td align='right'><Badge pill color='secondary'>{tx.fee}</Badge></td>
         <td className='small'>{tx.desc}</td>
       </tr>
     )
