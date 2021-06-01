@@ -34,13 +34,13 @@ NewProjectModal.defaultProps = {
         { id: 'sol-counter', display: 'Counter' },
       ],
     },
-    // {
-    //   group: `go`,
-    //   badge: `Go`,
-    //   children: [
-    //     { id: 'go-counter', display: 'Counter' },
-    //   ],
-    // },
+    {
+      group: `go`,
+      badge: `Go`,
+      children: [
+        { id: 'go-counter', display: 'Counter' },
+      ],
+    },
     // {
     //   group: `java`,
     //   badge: `Java`,
