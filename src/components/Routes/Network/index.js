@@ -3,7 +3,7 @@ import nodeManager from '@obsidians/node'
 
 import CustomXuperNetworkModal from './CustomXuperNetworkModal'
 
-nodeManager.execStart = async ({ name, version }) => {
+nodeManager.execStart = ({ name, version }) => {
   const containerName = `${process.env.PROJECT}-${name}-${version}`
   const startNode = [
     'docker run -it --rm',
@@ -15,8 +15,8 @@ nodeManager.execStart = async ({ name, version }) => {
     `${process.env.DOCKER_IMAGE_NODE}:${version}`,
     `/bin/bash -c "cp /data/xchain.yaml conf/xchain.yaml && ./xchain --vm ixvm --datapath /data/blockchain --keypath /data/keys --port 0.0.0.0:37101"`
   ].join(' ')
-  await nodeManager._terminal.exec(startNode, {
-    resolveOnFirstLog: true,
+  nodeManager._terminal.exec(startNode, {
+    returnCodeOnly: true,
     stopCommand: `docker stop ${containerName}`,
   })
 
@@ -29,8 +29,8 @@ nodeManager.execStart = async ({ name, version }) => {
     `xuper/xindexer:1.0.0`,
     `xindexer`
   ].join(' ')
-  await nodeManager._indexerTerminal.exec(startIndexer, {
-    resolveOnFirstLog: true,
+  nodeManager._indexerTerminal.exec(startIndexer, {
+    returnCodeOnly: true,
     stopCommand: `docker stop ${process.env.PROJECT}-${name}-indexer`,
   })
   return { id: `dev.${name}`, version }
