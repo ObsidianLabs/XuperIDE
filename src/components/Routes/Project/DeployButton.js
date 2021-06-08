@@ -214,7 +214,7 @@ export default class DeployerButton extends PureComponent {
         res = await networkManager.sdk.deploy(signer, contractAccount, contractName, bin, undefined, 'go', args)
       } else if (language === 'Java') {
         const args = this.args.current?.getArgs()
-        throw new Error('Deploy Java contract not supported yet.')
+        res = await networkManager.sdk.deploy(signer, contractAccount, contractName, bin, undefined, 'java', args)
       }
     } catch (e) {
       notification.error('Error', e.message)
