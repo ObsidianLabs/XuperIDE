@@ -11,41 +11,18 @@ import {
 
 import redux from '@obsidians/redux'
 
-import { networkManager } from '@obsidians/network'
+import { networkManager, CustomNetworkModal } from '@obsidians/network'
 
-export default class CustomNetworkModal extends PureComponent {
-  constructor (props) {
-    super(props)
-    this.state = {
-      info: { url: '', option: '' },
-    }
-    this.modal = React.createRef()
-  }
-
-  openModal (customNetwork = {}) {
-    this.setState({ info: customNetwork })
-    this.modal.current?.openModal()
-  }
-
-  update (customNetwork) {
-    this.setState({ info: customNetwork })
-    this.tryCreateSdk(customNetwork)
-  }
-
-  tryCreateSdk = async ({ url, option }) => {
-    const status = await networkManager.updateCustomNetwork({ url, option })
-    return !!status
-  }
-
+export default class CustomXuperNetworkModal extends CustomNetworkModal {
   loadLocalNetwork = () => {
-    this.setState({ info: {
+    this.setState({
       url: '127.0.0.1:37101',
       option: '',
-    } })
+    })
   }
 
   loadXuperNetwork = () => {
-    this.setState({ info: {
+    this.setState({
       url: 'https://xuper.baidu.com/nodeapi',
       option: JSON.stringify({
         transfer: {
@@ -61,21 +38,11 @@ export default class CustomNetworkModal extends PureComponent {
           endorseServiceFeeAddr: 'aB2hpHnTBDxko3UoP2BpBZRujwhdcAFoT'
         }
       }, null, 2),
-    } })
+    })
   }
-
-  onConfirmCustomNetwork = async () => {
-    const valid = await this.tryCreateSdk(this.state.info)
-    if (!valid) {
-      return
-    }
-    redux.dispatch('UPDATE_GLOBAL_CONFIG', { customNetwork: this.state.info })
-    this.modal.current.closeModal()
-    this.props.onUpdate(this.state.info)
-  }
-
+  
   render () {
-    const { info } = this.state
+    const { url, option } = this.state
 
     return (
       <Modal
@@ -96,8 +63,8 @@ export default class CustomNetworkModal extends PureComponent {
           label='Node URL'
           placeholder='grpc://... or http(s)://...'
           maxLength='300'
-          value={info.url}
-          onChange={url => this.setState({ info: { ...info, url } })}
+          value={url}
+          onChange={url => this.setState({ url })}
         />
         <DebouncedFormGroup
           label='Option'
@@ -105,8 +72,8 @@ export default class CustomNetworkModal extends PureComponent {
           placeholder='Must be a valid JSON string'
           inputGroupClassName='code'
           height={300}
-          value={info.option}
-          onChange={option => this.setState({ info: { ...info, option } })}
+          value={option}
+          onChange={option => this.setState({ option })}
         />
       </Modal>
     )

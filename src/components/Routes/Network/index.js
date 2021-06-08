@@ -1,11 +1,7 @@
-import React, { PureComponent } from 'react'
-import { withRouter } from 'react-router-dom'
-
-import { connect } from '@obsidians/redux'
 import Network from '@obsidians/network'
 import nodeManager from '@obsidians/node'
 
-import CustomNetworkModal from './CustomNetworkModal'
+import CustomXuperNetworkModal from './CustomXuperNetworkModal'
 
 nodeManager.execStart = async ({ name, version }) => {
   const containerName = `${process.env.PROJECT}-${name}-${version}`
@@ -14,6 +10,7 @@ nodeManager.execStart = async ({ name, version }) => {
     `--name ${containerName}`,
     `-p 37101:37101`,
     `-p 47101:47101`,
+    // '-v /var/run/docker.sock:/var/run/docker.sock',
     `-v ${process.env.PROJECT}-${name}:/data`,
     `${process.env.DOCKER_IMAGE_NODE}:${version}`,
     `/bin/bash -c "cp /data/xchain.yaml conf/xchain.yaml && ./xchain --vm ixvm --datapath /data/blockchain --keypath /data/keys --port 0.0.0.0:37101"`
@@ -39,31 +36,9 @@ nodeManager.execStart = async ({ name, version }) => {
   return { id: `dev.${name}`, version }
 }
 
-class NetworkWithProps extends PureComponent {
-  state = {
-    active: true
-  }
-
-  componentDidMount () {
-    this.props.cacheLifecycles.didCache(() => this.setState({ active: false }))
-    this.props.cacheLifecycles.didRecover(() => this.setState({ active: true }))
-  }
-
-  render () {
-    return (
-      <Network
-        tabs={{ indexer: true }}
-        networkId={this.props.network}
-        active={this.state.active}
-        customNetwork={this.props.globalConfig.get('customNetwork')}
-        CustomNetworkModal={CustomNetworkModal}
-      />
-    )
-  }
+Network.defaultProps = {
+  tabs: { indexer: true },
+  CustomNetworkModal: CustomXuperNetworkModal,
 }
 
-
-export default connect([
-  'network',
-  'globalConfig',
-])(withRouter(NetworkWithProps))
+export default Network
