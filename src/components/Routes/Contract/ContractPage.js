@@ -173,8 +173,8 @@ export default class ContractPage extends PureComponent {
             defaultSize={Math.floor(window.innerWidth / 2)}
             minSize={200}
           >
-            <ContractActions value={value} abi={actions} contract={contract} />
-            <ContractViews value={value} abi={views} contract={contract} signerSelector />
+            <ContractActions value={value} actions={actions} contract={contract} />
+            <ContractViews value={value} actions={views} contract={contract} signerSelector />
           </SplitPane>
         </div>
       )
