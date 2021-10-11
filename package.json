@@ -1,7 +1,7 @@
 {
   "name": "xuper-ide",
   "description": "Graphic IDE for Xuperchain smart contract development",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "author": {
     "name": "Phil Li",
     "email": "phil.li@obsidians.io",
