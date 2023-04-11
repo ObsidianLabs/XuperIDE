@@ -15,7 +15,7 @@ env:
   project_project: xuper
   project_name: XuperIDE
   project_build_script: yarn && yarn dist
-  os_matrix: '[\"macos-latest\", \"ubuntu-18.04\", \"windows-2019\"]'
+  os_matrix: '[\"macos-latest\", \"ubuntu-20.04\", \"windows-2019\"]'
   enable_auth: false
 
 jobs:
@@ -62,7 +62,7 @@ jobs:
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 16
 
       - name: Checkout code
         uses: actions/checkout@v2
@@ -101,7 +101,7 @@ jobs:
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 16
 
       - name: Checkout ${{ env.share_components }}
         uses: actions/checkout@v2
