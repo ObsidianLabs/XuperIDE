@@ -21,7 +21,7 @@ env:
 jobs:
   # Generate matrix for the following steps
   generate-matrix:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
       - name: Generate os matrix
@@ -38,7 +38,7 @@ jobs:
 
   # Extract version
   versions:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
       - name: Get ${{ env.project_name }} version
@@ -56,7 +56,7 @@ jobs:
   bump:
     needs: versions
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
       - name: Install Node.js, NPM and Yarn
