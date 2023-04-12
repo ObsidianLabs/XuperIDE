@@ -186,10 +186,6 @@ jobs:
           react_app_mixpanel_token: ${{ secrets.react_app_mixpanel_token }}
           github_token: ${{ github.token }}
 
-      - name: Clean up Build assets
-        working-directory: studio/dist
-        run: rm builder-debug.yml
-
       - name: Upload assets
         uses: AButler/upload-release-assets@v2.0
         with:
