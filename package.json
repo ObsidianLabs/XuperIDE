@@ -100,7 +100,7 @@
   },
   "resolutions": {
     "sass-loader": "^10.1.0",
-    "node-sass": "npm:sass",
+    "node-sass": "npm:sass"
   },
   "workspaces": [
     "../electron-components/packages/*",
